@@ -79,7 +79,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        //Scanner scanner = new Scanner(System.in);
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
         new StartUI().init(input, tracker);

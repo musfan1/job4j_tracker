@@ -20,7 +20,7 @@ class StartUITest {
     }
 
     @Test
-    void whenEditItem() {
+    void whenEditItemOk() {
         Tracker tracker = new Tracker();
         Item item = new Item("Первый");
         tracker.add(item);
@@ -34,7 +34,21 @@ class StartUITest {
     }
 
     @Test
-    void whenDeleteItem() {
+    void whenEditItemError() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Удалить");
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId() + 50),
+                "Второй"
+        };
+        StartUI.editItem(new StubInput(answers), tracker);
+        Item edited = tracker.findById(item.getId());
+        assertThat(edited.getName()).isEqualTo("Удалить");
+    }
+
+    @Test
+    void whenDeleteItemOk() {
         Tracker tracker = new Tracker();
         Item item = new Item("Третий");
         tracker.add(item);
@@ -44,5 +58,18 @@ class StartUITest {
         StartUI.deleteItem(new StubInput(answers), tracker);
         Item deleted = tracker.findById(item.getId());
         assertNull(deleted);
+    }
+
+    @Test
+    void whenDeleteItemError() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("Четвертый");
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId() + 30)
+        };
+        StartUI.deleteItem(new StubInput(answers), tracker);
+        Item deleted = tracker.findById(item.getId());
+        assertThat(deleted.getName()).isEqualTo("Четвертый");
     }
 }

@@ -2,9 +2,9 @@ package ru.job4j.cast;
 
 public class Bus implements Vehicle {
 
-    String name;
+    private String name;
 
-    Bus(String name) {
+    public Bus(String name) {
         this.name = name;
     }
 

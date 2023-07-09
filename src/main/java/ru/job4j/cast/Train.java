@@ -2,9 +2,9 @@ package ru.job4j.cast;
 
 public class Train implements Vehicle {
 
-    String name;
+    private String name;
 
-    Train(String name) {
+    public Train(String name) {
         this.name = name;
     }
 

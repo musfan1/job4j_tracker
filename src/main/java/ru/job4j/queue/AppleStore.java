@@ -15,10 +15,7 @@ public class AppleStore {
     public String getLastHappyCustomer() {
         String rsl = "";
         for (int i = 0; i < count; i++) {
-            Customer customer = queue.poll();
-            if (customer != null) {
-                rsl = customer.name();
-            }
+            rsl = queue.poll().name();
         }
         return rsl;
     }
@@ -27,7 +24,6 @@ public class AppleStore {
         for (int i = 0; i < count; i++) {
             queue.poll();
         }
-        Customer customer = queue.poll();
-        return customer != null ? customer.name() : "";
+        return (queue.peek() == null) ? "" : queue.poll().name();
     }
 }

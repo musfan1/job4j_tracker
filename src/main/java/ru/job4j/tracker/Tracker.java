@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Tracker {
     private int ids = 1;
+
     private final List<Item> items = new ArrayList<>();
 
     public Item add(Item item) {

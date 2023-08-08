@@ -28,8 +28,7 @@ public class ReconstructPhrase {
         StringBuilder rsl = new StringBuilder();
         int number = descendingElements.size();
         for (int i = 0; i < number; i++) {
-            char c = descendingElements.pollLast();
-            rsl.append(c);
+            rsl.append(descendingElements.pollLast());
         }
         return rsl.toString();
     }
